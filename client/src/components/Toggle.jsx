@@ -4,15 +4,16 @@ import { useEffect } from 'react';
 
 const Toggle = ({ isToggled ,setIsToggled }) => {
   
-   // const [isToggled, setIsToggled] = useState(false);
+   /* useeffect hook to ensure coordination of backfoundtheme across all the pages when it is 
+    loaded first based on the state value of "isToggled" */
    useEffect(() => {
 
     const singleDiv = document.querySelector('.job-heading');
     const myDivs = document.querySelectorAll('.jobcontainer'); 
     const apply = document.querySelectorAll('.apply-container');
     const body = document.body;
-    console.log(singleDiv);
-    console.log(isToggled);
+   
+    /* isTogled could also be checked in a outer if loop*/ 
 
     if(isToggled){
         body.style.color = 'white';
@@ -21,14 +22,14 @@ const Toggle = ({ isToggled ,setIsToggled }) => {
     }
 
     if (singleDiv){
-    if (isToggled) {
+        if (isToggled) {
+            
         
-      
-        singleDiv.style.backgroundColor = 'var(--clr--dark-blue)';
-    }else{
-        singleDiv.style.backgroundColor = 'white'; 
-        
-    }
+            singleDiv.style.backgroundColor = 'var(--clr--dark-blue)';
+        }else{
+            singleDiv.style.backgroundColor = 'white'; 
+            
+        }
     }
 
     if(myDivs){
@@ -59,12 +60,12 @@ const Toggle = ({ isToggled ,setIsToggled }) => {
 
     }
   
-  }, []); // The empty dependency array means this effect runs once on component mount
+  }, []); // The empty dependency array means this effect runs once on component is loaded
 
    
 
     const handleDivClick = () => {
-        //setIsToggled(!isToggled);
+        /*toggle the color of different html components*/ 
         toggleBodyStyles();
         setIsToggled(!isToggled);
       };
@@ -125,14 +126,12 @@ const Toggle = ({ isToggled ,setIsToggled }) => {
     return (
         
       <>
-       
-       <div className='sun-container'>  <img src="/assets/desktop/icon-sun.svg" alt="sun" /></div>
-        <div className={`container ${isToggled ? 'toggled' : ''}`} onClick={handleDivClick}>
-            <div className={`circle ${isToggled ? 'right' : 'left'}`}></div>
-       </div>
-       <div className='moon-container'> <img src="/assets/desktop/icon-moon.svg" alt="moon" /></div>
-       
-    </>
+        <div className='sun-container'>  <img src="/assets/desktop/icon-sun.svg" alt="sun" /></div>
+            <div className={`container ${isToggled ? 'toggled' : ''}`} onClick={handleDivClick}>
+                <div className={`circle ${isToggled ? 'right' : 'left'}`}></div>
+        </div>
+        <div className='moon-container'> <img src="/assets/desktop/icon-moon.svg" alt="moon" /></div>
+      </>
     );
    
   };

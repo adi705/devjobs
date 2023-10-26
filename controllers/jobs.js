@@ -4,6 +4,7 @@ import { createCustomError } from '../errors/custom-errors.js';
 import Job from '../models/Job.js';
 
 
+// function that returns a list of jobs as json objects
 export const getAllJobs = async (req, res) => {
 
     const { search , difficulty} = req.query;
@@ -24,12 +25,13 @@ export const getAllJobs = async (req, res) => {
   };
 
 
-  
+// function that returns a particular job based on id 
 export const getJob = async (req, res, next) => {
     
     const { id: jobID } = req.params
     const job = await Job.findOne({ _id: jobID })
-   
+
+    // custom error as opposed to express async error in the first export function
     if (!job) {
         return next(createCustomError(`No job with the given id : ${jobID}`, 404))
     }

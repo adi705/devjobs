@@ -23,34 +23,34 @@ export const loader = async ({ params, request }) => {
 
 const SingleJob = () => {
 
+    // the following states are used in markup
     const {job} = useLoaderData();
     const { isToggled,setIsToggled } = useGlobalContext();
     
     const {_id,company, position, contract, location, logo, logoBackground} = job;
-    console.log(`.${logo}`);
+    
+    // not really necessary
     const divStyle = {
-        backgroundColor: logoBackground, // Replace with your desired color
+        backgroundColor: logoBackground, 
         
-      };
+    };
 
     return (
         
-      <>
+    <>
 
     <div className='headerimg-container'>
         <img src="../assets/mobile/bg-pattern-header.svg" alt="no image" />
     </div>
+    
+     
     <Link to="/"><h1 className='header'>Devjobs</h1></Link>
     <Toggle isToggled={isToggled} setIsToggled={setIsToggled}/>
 
 
-      <div className='job-heading'>
-
-         
-         
-         <div className='simg-container' style={divStyle}>
-           
-           <img src={`.${logo}`} alt="logo" />
+    <div className='job-heading'>
+        <div className='simg-container' style={divStyle}>
+          <img src={`.${logo}`} alt="logo" />
         </div>
         
          <div className='job-info'> 
@@ -59,10 +59,10 @@ const SingleJob = () => {
          </div>
         
          <p className='company-site'>Company Site</p>
-      </div>
+    </div>
       
 
-       <div className='jobcontainer extra-container'>
+    <div className='jobcontainer extra-container'>
            
            <div className='job-intro-container'>
                 <div className='job-info-container'>           
@@ -82,8 +82,7 @@ const SingleJob = () => {
 
             <ul>
             {job.requirements.items.map((item)=>{
-                
-                return ( <li>{item}</li>)
+              return ( <li>{item}</li>)
             })  
             
             }   
@@ -94,8 +93,7 @@ const SingleJob = () => {
 
             <ul>
             {job.role.items.map((item)=>{
-                
-                return ( <li>{item}</li>)
+              return ( <li>{item}</li>)
             })  
             
             }   
@@ -103,13 +101,13 @@ const SingleJob = () => {
 
             
              
-        </div>
-        <div className='apply-container'>
+    </div>
+    <div className='apply-container'>
           <p className='job-pos'>{job.position}</p>
           <p className='apply-now extra-apply'>Apply Now</p>
-        </div>   
+    </div>   
         
-     </>
+    </>
     );
    
   };

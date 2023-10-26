@@ -11,9 +11,7 @@ import { GlobalProvider } from './context';
 
 const router = createBrowserRouter([
    
-  
   {
-    
     path: '/',
     element: <AllJobs />,
     loader: jobLoader,
@@ -23,32 +21,19 @@ const router = createBrowserRouter([
     path: '/single-job/:id',
     element: <SingleJob/>,
     loader: singlejobLoader,
-   
   },
   
- 
-
   { 
     path: '/test',
-    
-
     element:<Justest rom="Hello, World!"  />
-    
   },
 
-  
-
-  
- ]);
+]);
 
 const App = () => {
  
-
- 
   return (
-  <GlobalProvider> <RouterProvider router={router}/></GlobalProvider>
- 
- 
+    <GlobalProvider> <RouterProvider router={router}/></GlobalProvider>
   );
 };
 export default App;

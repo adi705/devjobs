@@ -13,7 +13,7 @@ const FormRow = ({ type, name, labelText, defaultValue, onChange, placeholder  }
         defaultValue={defaultValue }
         onChange={onChange}
         
-       placeholder = {placeholder}
+        placeholder = {placeholder}
        
         
        

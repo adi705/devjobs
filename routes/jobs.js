@@ -6,9 +6,10 @@ import {
 } from '../controllers/jobs.js';
 
 
-// validation middleware for checkecing if an id is a valid param
+// todo: validation middleware for checkecing if an id is a valid param
 
 
+// valid routes
 router.route('/').get(getAllJobs);
 router.route('/:id').get(getJob);
 
